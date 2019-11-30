@@ -1,6 +1,10 @@
 const express=require('express');
 const hbs=require('hbs'); 
 const fs=require('fs');
+
+const port=process.env.PORT ||3000;
+
+
 var app=express();
 
 hbs.registerPartials(__dirname+'/views/partials'); // it take the directory you want to use for all of your hbs partia files and we are going to be specifying.
@@ -98,7 +102,10 @@ app.get('/bad',(req,res)=>{
 
 
 // app.listen(3000) is going to bind the application to a port on our machine .3000 :- common port for the developing locally.
-app.listen(3000);
+//app.listen(3000);
+app.listen(port,()=>{
+    console.log(`Server is up on port ${port}`);
+});
 
 console.log('server is up on port 3000');
 
